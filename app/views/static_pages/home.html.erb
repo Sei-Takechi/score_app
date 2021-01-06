@@ -1,0 +1,17 @@
+<% provide(:page_title, 'ホーム') %>
+
+<div class="home_main">
+  <div class="push_front">
+    <%# headerの描画 %>
+    <%= render 'layouts/header' %>
+
+    <div class="search_form">
+      <h1>Connect pianist to scores!<h1>
+      <p>-あなたの弾きたい！が見つかる-</p>
+      <div class="search_box">
+        <input type="search" name="search" size="50" max-length="30">
+        <input type="submit" value="検索">
+      </div>
+    </div>
+  </div>
+</div>
