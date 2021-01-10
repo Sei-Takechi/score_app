@@ -8,8 +8,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body>    
     <%# 各ファイルの内容を描画 %>
     <%= yield %>
+    <div class="debug">
+      <%= debug(params) if Rails.env.development? %>
+    </div>
   </body>
 </html>

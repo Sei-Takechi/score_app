@@ -1,0 +1,20 @@
+<% provide(:page_title, "#{@user.name}") %>
+
+<%# flash の描画 %>
+<%= render 'shared/flash' %>
+
+<div class="show_main">
+  <div class="float_front">
+    <%= render "layouts/header" %>
+    <div class="user_profile">
+        <%= gravatar_for @user %>
+        <div class="user_info">
+          <h1>
+            <%= @user.name %>
+          </h1>
+          <p>フォロワー： 3</p>
+          <p>フォロー： 3 </p>
+        </div>
+    </div>
+  </div>
+</div>

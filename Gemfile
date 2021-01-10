@@ -8,6 +8,8 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.7'
+# errorを日本語化するgem
+gem 'rails-i18n'
 # bcryptの導入
 gem 'bcrypt'
 # Use sqlite3 as the database for Active Record
