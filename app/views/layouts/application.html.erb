@@ -8,7 +8,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>    
+  <body>
+    <%# flashの描画 %>
+    <%= render 'shared/flash' %>    
     <%# 各ファイルの内容を描画 %>
     <%= yield %>
     <div class="debug">
