@@ -73,7 +73,23 @@ body {
   background-color: rgb(211, 125, 125);
   color: rgba($color: white, $alpha: 1.0);
 }
-// home_main 
+
+// errors
+
+.errors {
+  background-color: $original_parent_white;
+
+  ul {
+    text-align: center;
+    list-style: none;
+
+    li {
+      color: $original_hawaian_blue;
+    }
+  }
+}
+
+// home
 
 main {
   @include header_background('header_back.jpg', 700px)
@@ -136,6 +152,7 @@ main {
   background-color: $original_parent_white;
   display: flex;
   border-radius: 10px;
+  list-style: none;
 
   .gravatar {
     padding: 20px;
@@ -144,8 +161,9 @@ main {
     height: 50px;
   }
 
-  h1 {
+  .user_name {
     color: white;
+    text-decoration: none;
   }
 
   p {
@@ -177,17 +195,14 @@ main {
   color: white;
 }
 
-// errors
+// index
 
-.errors {
-  background-color: $original_parent_white;
-
-  ul {
-    text-align: center;
-    list-style: none;
-
-    li {
-      color: $original_hawaian_blue;
-    }
-  }
+.index_main {
+  @include header_background('show_back.jpg', 700px)
 }
+
+// user_list
+
+// .user_list {
+// }
+

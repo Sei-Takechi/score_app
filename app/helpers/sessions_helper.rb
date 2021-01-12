@@ -12,6 +12,11 @@ module SessionsHelper
     end
   end
 
+  # あるユーザーが現在ログインしているユーザーかどうか真偽値で返すメソッド
+  def current_user?(user)
+    current_user == user
+  end
+
   # loginしていればtrue,していなければfalseを返す
   def logged_in?
     !current_user.nil?

@@ -1,14 +1,13 @@
-<% provide(:page_title, "新規登録") %>
-<%# formを送信するurlの指定 %>
-<% provide(:form_url, signup_path) %>
-<% provide(:method, :post) %>
+<% provide(:page_title, "ユーザー更新") %>
+<% provide(:form_url, user_path) %>
+<% provide(:method, :patch) %>
 
 <div class="signup_main">
   <div class="float_front">
     <%= render "layouts/header" %>
     <%= render 'shared/error_messages' %>
     <div class="signup_container">
-      <h1 class="signup_title">新規登録</h1>
+      <h1 class="signup_title">ユーザー更新</h1>
       <%= render 'shared/user_form' %>
     </div>
   </div>

@@ -6,9 +6,7 @@
     <div class="user_profile">
         <%= gravatar_for @user %>
         <div class="user_info">
-          <h1>
-            <%= @user.name %>
-          </h1>
+            <%= link_to @user.name, @user, class: "user_name" %>
           <p>フォロワー： 3</p>
           <p>フォロー： 3 </p>
         </div>
