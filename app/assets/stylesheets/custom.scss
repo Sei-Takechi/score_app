@@ -1,6 +1,9 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 // mixin の定義
 @mixin header_background($image_url, $height_value) {
-  padding-top: 20px;
+  padding: 20px;
   width: 100%;
   height: $height_value;
   background-image: image-url($image_url);
@@ -30,35 +33,19 @@ body {
   margin: 0;
 }
 
-.menu_container {
-  margin: 0 auto;
-  padding: 20px;
-  // border: 2px solid #fff;
-  border-radius: 5px;
-  width: 70%;
-  height: 50px;
-  background-color: rgb(231, 237, 238);
-}
+// navbar
 
-.main_menu {
-  margin: 0;
-  // padding: 20px;
-  display: flex;
-  justify-content: center;
+.nav-item {
+  padding: 15px;
   list-style: none;
-  line-height: 50px;
-}
-
-.menu_link {
-  margin-right: 20px;
-  color: black;
   text-decoration: none;
-  transition: color 0.3s;
 
-  &:hover {
-    color: $original_hawaian_blue;
+  a {
+    color: white;
+    font-size: 1.5rem;
   }
 }
+
 // flash[:success], flash[:danger] のスタイル
 .flash_wrapper {
   text-align: center;
@@ -144,7 +131,7 @@ main {
 // show
 
 .show_main {
-  @include header_background('show_back.jpg', 400px)
+  @include header_background('show_back.jpg', 100%)
 }
 
 .user_profile {
@@ -155,10 +142,9 @@ main {
   list-style: none;
 
   .gravatar {
+    height: 100px;
     padding: 20px;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
   }
 
   .user_name {
@@ -171,6 +157,10 @@ main {
     color: white;
     font-size: 20px;
   }
+}
+
+.user_show {
+  text-align: center;
 }
 
 // signup
@@ -198,11 +188,103 @@ main {
 // index
 
 .index_main {
-  @include header_background('show_back.jpg', 700px)
+  @include header_background('show_back.jpg', 100%)
 }
 
-// user_list
+.index_title {
+  text-align: center;
 
-// .user_list {
-// }
+  h1 {
+    color: white;
+  }
+}
 
+// pdf
+
+.post_profile {
+  margin: 20px;
+  background-color: $original_parent_white;
+  display: flex;
+  border-radius: 10px;
+
+  // サムネイルに関するスタイル
+  .pdf_thumbnail {
+    text-align: center;
+
+    object {
+      margin: 20px 20px 0 20px;
+    }
+    .pdf_link {
+      display: block;
+      text-decoration: none;
+      color: rgb(252, 218, 218);
+    }
+  }
+
+  // pdfの情報に関するスタイル
+  .pdf_info {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: white;
+  }
+}
+
+.pdf_title {
+  h1 {
+    margin-top: 10px;
+    font-size: 1.9rem;
+    font-weight: normal;
+    color: white;
+  }
+
+  p {
+    margin-top: 10px;
+    font-size: 0.1rem;
+    color: lightgray;
+  }
+}
+
+.pdf_text_box {
+  width: 100%;
+  background-color: rgb(248, 234, 221);
+
+  p {
+    color: black;
+  }
+}
+
+.pdf_detail {
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+// users_feed
+.feed {
+  width: 100%;
+}
+
+.feed_info {
+  p {
+
+    a {
+        color: white;
+        text-decoration: none;
+      }
+  }
+}
+
+// form
+
+form {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+
+  label {
+    color: white;
+  }
+}

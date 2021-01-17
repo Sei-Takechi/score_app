@@ -3,17 +3,26 @@
 <div class="index_main">
   <div class="float_front">
     <%= render "layouts/header" %>
+    <div class="index_title">
+      <h1>ユーザーリスト</h1>
+    </div>
+
+    <%= will_paginate %>
+
     <% @users.each do |user| %>
     <ul class="user_profile">
       <li>
           <%= gravatar_for user %>
           <%= link_to user.name, user, class: "user_name user_list" %>
           <%# user削除用リンクの作成、管理者だけに表示. ただし、管理者自身の削除リンクは表示しない %>
-          <% if current_user.admin? && !current_user?(user) %>
+          <% if current_user != nil && current_user.admin? && !current_user?(user) %>
           <%= link_to "削除", user, method: :delete, data: { confirm: "本当に削除してもよろしいですか？" } %>
           <% end %>
       </li>
     </ul>
     <% end %>
+
+    <%= will_paginate %>
+
   </div>
 </div>

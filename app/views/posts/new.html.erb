@@ -1,0 +1,15 @@
+<% provide(:page_title, "新規投稿") %>
+<%# formを送信するurlの指定 %>
+<% provide(:form_url, posts_path) %>
+<% provide(:method, :post) %>
+
+<div class="signup_main">
+  <div class="float_front">
+    <%= render "layouts/header" %>
+    <%# <%= render 'shared/error_messages' %>
+    <div class="signup_container">
+      <h1 class="signup_title">新規投稿</h1>
+      <%= render 'shared/post_form' %>
+    </div>
+  </div>
+</div>

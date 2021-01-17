@@ -6,10 +6,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @feed_items = @user.posts.paginate(page: params[:page], per_page: 5)
+    # @posts = @user.posts.paginate(page: params[:page], per_page: 5)
   end
 
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page])
   end
 
   def new

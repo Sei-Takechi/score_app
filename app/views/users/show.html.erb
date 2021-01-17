@@ -6,10 +6,29 @@
     <div class="user_profile">
         <%= gravatar_for @user %>
         <div class="user_info">
-            <%= link_to @user.name, @user, class: "user_name" %>
-          <p>フォロワー： 3</p>
-          <p>フォロー： 3 </p>
+            <h1><%= link_to @user.name, @user, class: "user_name" %></h1>
         </div>
+        <%# userに紐づいたpostsを表示 %>
+        <% if @feed_items.any? %>
+          <div class="feed">
+            <ol class="posts">
+              <% @feed_items.each do |feed| %>
+                <div class="post_profile">
+                  <div class="pdf_thumbnail">
+                    <object data="<%= feed.file.url %>" type="application/pdf" 
+                    width="100" height="150"></object>
+                    <%= link_to "pdfへのリンク", feed.file.url, target: :_blank, class: "pdf_link" %>
+                  </div>
+                  <div class="feed_info">
+                    <p>楽譜のタイトル：　<%= link_to feed.title, post_path(feed) %></p>
+                    <p>いいね</p>
+                  </div>
+                </div>
+              <% end %>
+            </ol>
+            <%= will_paginate @feed_items, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+          </div>
+        <% end %>
     </div>
   </div>
 </div>

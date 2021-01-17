@@ -1,0 +1,25 @@
+  <%= form_with model: @post, url: yield(:form_url), method: yield(:method),
+  local: true, multipart: true do |form| %>
+  
+    <div class="form-group form-group-md row justify-content-center">
+      <%= form.label :title, "タイトル", class: "control-label" %>
+      <div class="col-md-5">
+        <%= form.text_field :title, class: "form-control", placeholder: "タイトルを入力してください" %>
+      </div>
+    </div>
+    <div class="form-group form-group-md row justify-content-center">
+      <%= form.label :content, "説明文" , class: "control-label" %>
+      <div class="col-md-5">
+        <%= form.text_area :content, class: "form-control ", placeholder: "楽譜の説明を入力してください" %>
+      </div>
+    </div>
+    <div class="form-group form-group-md row justify-content-center">
+      <%= form.label :file, "pdfファイル", class: "control-label" %>
+      <div class="custom-file col-md-5">
+        <%= form.file_field :file, class: "custom-file-input" %>
+        <%= form.label :file, "ファイルを選択してください", class: "custom-file-label" %>
+      </div>
+    </div>
+    <%= form.submit "投稿", class: "btn btn-primary" %>
+
+  <% end %>

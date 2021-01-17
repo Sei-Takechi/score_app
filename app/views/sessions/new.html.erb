@@ -8,15 +8,19 @@
       <h1 class="signup_title">ログイン</h1>
       <%= form_with scope: :session, url: login_path, local: true, class: "signup_form" do |form| %>
   
-        <div class="form_item">
-          <%= form.label :email, "メール" %>
-          <%= form.text_field :email %>
+        <div class="form-group form-group-md row justify-content-center">
+          <%= form.label :email, "メール", class: "control-label" %>
+          <div class="col-md-5">
+            <%= form.text_field :email, class: "form-control", placeholder: "メールを入力してください" %>
+          </div>
         </div>
-        <div class="form_item">
-          <%= form.label :password, "パスワード" %>
-          <%= form.password_field :password %>
+        <div class="form-group form-group-md row justify-content-center">
+          <%= form.label :password, "パスワード" , class: "control-label" %>
+          <div class="col-md-5">
+            <%= form.text_field :password, class: "form-control ", placeholder: "パスワードを入力してください" %>
+          </div>
         </div>
-        <%= form.submit "ログイン" %>
+        <%= form.submit "ログイン", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

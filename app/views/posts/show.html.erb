@@ -1,0 +1,26 @@
+<% provide(:page_title, "#{@post.user.name}") %>
+
+<div class="show_main">
+  <div class="float_front">
+    <%= render "layouts/header" %>
+    <div class="post_profile">
+     <div class="pdf_thumbnail">
+        <object data="<%= @post.file.url %>" type="application/pdf" width="200" height="300"></object>
+        <%= link_to "pdfへのリンク", @post.file.url, target: :_blank, class: "pdf_link" %>
+     </div>
+      <div class="pdf_info">
+        <div class="pdf_title">
+          <h1>楽譜のタイトル：　<%= @post.title %></h1>
+          <p>投稿日： <%= @post.created_at %></p>
+          <p>最終更新日： <%= @post.updated_at %></p>
+        </div>
+        <div class="pdf_detail">
+          <p>楽譜説明</p>
+          <div class="pdf_text_box">
+            <p><%= @post.content %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

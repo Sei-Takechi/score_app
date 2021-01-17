@@ -12,6 +12,15 @@ gem 'rails', '~> 5.1.7'
 gem 'rails-i18n'
 # bcryptの導入
 gem 'bcrypt'
+# bootstrapの導入
+gem 'bootstrap-sass'
+# carrierwaveの導入
+gem 'carrierwave', '~> 2.0'
+# fakerの追加
+gem 'faker'
+# ページネーションの追加
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
