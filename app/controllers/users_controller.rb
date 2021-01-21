@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @feed_items = @user.posts.paginate(page: params[:page], per_page: 5)
-    # @posts = @user.posts.paginate(page: params[:page], per_page: 5)
   end
 
   def index
@@ -49,14 +48,6 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = "ユーザーを削除しました"
     redirect_to users_url
-  end
-
-  # loginしていなければログインフォームへ飛ばす
-  def logged_in_user
-    unless logged_in?
-      flash[:danger] = "ログインが必要です"
-      redirect_to login_url
-    end
   end
 
   # ユーザー本人であるかを確かめ、違う場合ホームへ飛ばす

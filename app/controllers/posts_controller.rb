@@ -1,10 +1,13 @@
 class PostsController < ApplicationController
+
+  before_action :logged_in_user, only: [:new, :create]
+
   def new
     @post = current_user.posts.build if logged_in?
   end
 
   def show
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def index
@@ -18,10 +21,21 @@ class PostsController < ApplicationController
       flash[:success] = "投稿しました"
       redirect_to post_path(@post)
     else
-      # errorも表示させる（未実装）
       render 'new'
     end
 
+  end
+
+  def search
+    # 検索文を変数に代入
+    content = params[:search]
+
+    if content
+      @posts = Post.where("title LIKE ?", "%#{content}%")
+    else
+      @posts = Post.all
+    end
+    
   end
 
   private
@@ -29,5 +43,6 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :content, :file)
     end
+
 
 end

@@ -118,6 +118,10 @@ main {
   }
 }
 
+#search {
+  color: black;
+}
+
 // help
 
 .help_container {
@@ -156,6 +160,15 @@ main {
     margin: 20px;
     color: white;
     font-size: 20px;
+  }
+
+  li {
+    a {
+      display: inline-block;
+      color: white;
+      margin-right: 10px;
+      text-decoration: none;
+    }
   }
 }
 
@@ -220,44 +233,80 @@ main {
       color: rgb(252, 218, 218);
     }
   }
-
-  // pdfの情報に関するスタイル
-  .pdf_info {
-    margin-top: 20px;
-    font-weight: bold;
-    font-size: 0.8rem;
-    color: white;
-  }
 }
 
-.pdf_title {
-  h1 {
-    margin-top: 10px;
-    font-size: 1.9rem;
-    font-weight: normal;
-    color: white;
-  }
-
-  p {
-    margin-top: 10px;
-    font-size: 0.1rem;
-    color: lightgray;
-  }
-}
-
-.pdf_text_box {
+.pdf_info {
+  margin: 20px;
   width: 100%;
-  background-color: rgb(248, 234, 221);
-
-  p {
-    color: black;
-  }
 }
+
+.info_container {
+  padding: 20px;
+  background-color: rgb(241, 253, 252);
+  border-radius: 10px;
+  display: flex;
+
+  .likes_info {
+    padding: 10px 0;
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .unlikes_info {
+    padding: 10px 0;
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .date_info {
+    margin-left: 30px;
+
+    p {
+      margin-top: 10px;
+      font-size: 0.05rem;
+      color: rgb(143, 143, 143);
+    }
+  }
+
+  .pdf_title {
+    
+    h1 {
+      margin-top: 10px;
+      font-size: 1.3rem;
+      font-weight: normal;
+      color: rgb(0, 0, 0);
+    }
+
+  }
+
+}
+
+
 
 .pdf_detail {
-  p {
+  > p {
+    margin-top: 10px;
+    width: 70px;
+    padding: 3px;
     font-size: 1.5rem;
+    background-color: rgb(53, 157, 199);
+    color: white;
+    border-radius: 3px;
   }
+
+  .pdf_text_box {
+    margin-top: 10px;
+    width: 100%;
+    background-color: rgb(248, 234, 221);
+    border-radius: 5px;
+  
+    p {
+      color: black;
+    }
+  }
+
 }
 
 // users_feed
@@ -286,5 +335,58 @@ form {
 
   label {
     color: white;
+  }
+}
+
+// like-btn
+
+.like-btn {
+  width: 25px;
+  height: 30px;
+  font-size: 15px;
+  color: #808080; 
+  margin-left: 20px;
+}
+
+.unlike-btn {
+  width: 25px;
+  height: 30px;
+  font-size: 15px;
+  color: #e54747;
+  margin-left: 20px;
+}
+
+// follow
+
+.follow {
+  margin-top: 10px;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.unfollow {
+  margin-top: 10px;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.follow_info {
+  text-align: center;
+  margin-top: 10px;
+
+  a {
+    color: white;
+    font-size: 0.5rem;
+    margin: 0;
+    text-decoration: none;
+    display: block;
+
+    &:hover {
+      color: rgba($color: #aef3f8, $alpha: 0.7);
+    }
   }
 }

@@ -8,3 +8,11 @@ ja:
         email: メール
         password: パスワード
         password_confirmation: パスワードの確認
+    
+    models: 
+      post: 投稿
+    attributes:
+      post:
+        title: タイトル
+        content: 楽譜の説明
+        file: ファイル

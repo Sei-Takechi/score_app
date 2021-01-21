@@ -9,8 +9,11 @@
       <h1>Connect pianist to scores!<h1>
       <p>-あなたの弾きたい！が見つかる-</p>
       <div class="search_box">
-        <input type="search" name="search" size="50" max-length="30">
-        <input type="submit" value="検索">
+        <%= form_tag(search_path, method: :get) do %>
+          <%= label_tag :楽譜検索 %>
+          <%= text_field_tag :search %>
+          <%= submit_tag "検索", class: "btn btn-primary" %>
+        <% end %>
       </div>
     </div>
   </div>

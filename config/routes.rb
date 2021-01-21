@@ -8,7 +8,13 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+  get 'following/:id' => 'follows#following'
+  get 'followed/:id' => 'follows#followed'
+  get 'search' => 'posts#search'
+
   resources :users
   resources :posts
+  resources :likes, only: [:update, :destroy]
+  resources :follows, only: [:update, :destroy]
 
 end

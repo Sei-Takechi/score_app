@@ -3,7 +3,7 @@
 <div class="signup_main">
   <div class="float_front">
     <%= render "layouts/header" %>
-    <%= render 'shared/error_messages' %>
+    <%= render 'shared/error_messages', { object: @user } %>
     <div class="signup_container">
       <h1 class="signup_title">ログイン</h1>
       <%= form_with scope: :session, url: login_path, local: true, class: "signup_form" do |form| %>

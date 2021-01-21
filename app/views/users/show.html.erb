@@ -6,7 +6,15 @@
     <div class="user_profile">
         <%= gravatar_for @user %>
         <div class="user_info">
-            <h1><%= link_to @user.name, @user, class: "user_name" %></h1>
+          <h1><%= link_to @user.name, @user, class: "user_name" %></h1>
+          <%# 他のユーザーの詳細ページのとき、followボタンを表示 %>
+          <% if @user != current_user %>
+          <%= render_follow(@user) %>
+          <% end %>
+          <div class="follow_info">
+            <%= link_to "フォロワー: #{@user.passive_follows.count}", "/followed/#{@user.id}" %>
+            <%= link_to "フォロー: #{@user.active_follows.count}", "/following/#{@user.id}" %>
+          </div>
         </div>
         <%# userに紐づいたpostsを表示 %>
         <% if @feed_items.any? %>
@@ -21,7 +29,8 @@
                   </div>
                   <div class="feed_info">
                     <p>楽譜のタイトル：　<%= link_to feed.title, post_path(feed) %></p>
-                    <p>いいね</p>
+                    <%# いいね表示 %>
+                    <%= render_likes(feed) %>
                   </div>
                 </div>
               <% end %>

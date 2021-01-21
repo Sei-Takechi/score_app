@@ -1,0 +1,6 @@
+<div class="likes_info">
+  <%= link_to like_path(post), method: :delete do %>
+    <i class="far fa-heart unlike-btn"></i>
+  <% end %>
+  <%= post.likes.count %>
+</div>
