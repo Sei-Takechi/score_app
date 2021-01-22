@@ -6,7 +6,10 @@
     <div class="post_profile">
      <div class="pdf_thumbnail">
         <object data="<%= @post.file.url %>" type="application/pdf" width="200" height="300"></object>
-        <%= link_to "pdfへのリンク", @post.file.url, target: :_blank, class: "pdf_link" %>
+        <%# ログイン済みユーザーにのみ、楽譜の表示を行う %>
+        <% if current_user != nil %>
+        <%= link_to "pdfを表示", @post.file.url, target: :_blank, class: "pdf_link" %>
+        <% end %>
      </div>
      <div class="pdf_info">
        <div class="info_container">
@@ -14,9 +17,10 @@
            <h1>楽譜のタイトル</h1>
            <h1><%= @post.title %></h1>
          </div>
-         <%# いいねの描画 %>
-         <%= render_likes(@post) %>
-
+         <%# ログインしていれば、いいねを描画する %>
+         <% if current_user != nil %>
+          <%= render_likes(@post) %>
+         <% end %>
          <div class="date_info">
            <p>投稿者： <%= link_to @post.user.name, user_path(@post.user) %></p>
            <p>投稿日： <%= @post.created_at.strftime('%Y/%m/%d') %></p>

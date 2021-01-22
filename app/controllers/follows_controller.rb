@@ -1,6 +1,6 @@
 class FollowsController < ApplicationController
   
-  before_action :logged_in_user
+  before_action :logged_in_user, only: [:update, :destroy]
 
   def followed
     @title = "フォロワー"

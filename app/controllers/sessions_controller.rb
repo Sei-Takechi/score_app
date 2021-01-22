@@ -10,6 +10,8 @@ class SessionsController < ApplicationController
       redirect_to root_url
     else
       flash.now[:danger] = "入力された情報に誤りがあります"
+      # userインスタンスを初期化
+      @user = User.new
       render 'new'
     end
   end

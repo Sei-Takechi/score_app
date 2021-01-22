@@ -7,8 +7,8 @@
         <%= gravatar_for @user %>
         <div class="user_info">
           <h1><%= link_to @user.name, @user, class: "user_name" %></h1>
-          <%# 他のユーザーの詳細ページのとき、followボタンを表示 %>
-          <% if @user != current_user %>
+          <%# ログイン済み、かつ他のユーザーの詳細ページのとき、followボタンを表示 %>
+          <% if current_user != nil && @user != current_user %>
           <%= render_follow(@user) %>
           <% end %>
           <div class="follow_info">
@@ -29,8 +29,10 @@
                   </div>
                   <div class="feed_info">
                     <p>楽譜のタイトル：　<%= link_to feed.title, post_path(feed) %></p>
-                    <%# いいね表示 %>
+                    <%# ログイン済みなら、いいね表示 %>
+                    <% if current_user != nil %>
                     <%= render_likes(feed) %>
+                    <% end %>
                   </div>
                 </div>
               <% end %>

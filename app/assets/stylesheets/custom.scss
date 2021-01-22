@@ -6,6 +6,7 @@
   padding: 20px;
   width: 100%;
   height: $height_value;
+  min-height: 700px;
   background-image: image-url($image_url);
   background-size: cover;
   position: relative;
@@ -111,10 +112,16 @@ main {
   margin: 20px auto;
   width: 50%;
   background-color: $original_parent_white;
+  border-radius: 5px;
+  text-align: center;
 
   input {
     margin: 0;
     vertical-align: middle;
+  }
+
+  p {
+    color: rgb(242, 252, 104);
   }
 }
 
@@ -126,6 +133,17 @@ main {
 
 .help_container {
   text-align: center;
+
+  h1 {
+    color: white;
+  }
+
+  ul {
+    padding: 0;
+    li {
+      color: white;
+    }
+  }
 }
 
 .help_list {
@@ -304,6 +322,7 @@ main {
   
     p {
       color: black;
+      padding: 10px;
     }
   }
 
