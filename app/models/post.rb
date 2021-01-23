@@ -7,13 +7,14 @@ class Post < ApplicationRecord
   validates :content, presence: true, length: { maximum: 200 }
   validates :file, presence: true
   validates :title, presence: true, length: { maximum: 30 }
+  validate  :pdf_size
 
-  # def self.search_posts(content)
-  #   if content
-  #     Post.where("title LIKE ?", "%#{content}%")
-  #   else
-  #     Post.all
-  #   end
-  # end
+  private
+
+    def pdf_size
+      if file.size > 5.megabytes
+        flash[:danger] = "ファイルサイズを５MBより小さくしてください"
+      end
+    end
 
 end
