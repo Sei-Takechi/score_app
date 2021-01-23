@@ -31,5 +31,3 @@
     * carrierwave 
   * ページネーション機能
     * will_paginate, bootstrap-will_paginate
-  * サンプルデータ生成
-    * faker
